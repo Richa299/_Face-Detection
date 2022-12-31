@@ -56,10 +56,7 @@ function Main(props) {
      height="400"/>
     </div>
       
-    
-    <form>
-    <button onClick={handleClick} className="button">New Picture</button>
-    </form>
+
     </div>
     
   );

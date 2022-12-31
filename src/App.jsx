@@ -15,8 +15,9 @@ function App() {
     <div className="App"> 
     <form className='main-form'>
       <input type="file" onChange={handleChange} className="choose"/>
-      <Main src={img} />
+     
      </form>
+     <Main src={img} />
      
     
     </div>
