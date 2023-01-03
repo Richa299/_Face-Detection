@@ -1,5 +1,5 @@
 import * as faceapi from "face-api.js";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './Main.css';
 function Main(props) {
     
@@ -10,8 +10,6 @@ function Main(props) {
     
     const detections=await faceapi.detectAllFaces(imageRef.current,
       new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-     
-      console.log(canvasRef.current);
       
       canvasRef.current.innerHtml=faceapi.createCanvasFromMedia(imageRef.current);
       faceapi.matchDimensions(canvasRef.current, {
@@ -30,23 +28,23 @@ function Main(props) {
   useEffect(()=>{
   const loadModels=()=>{
   Promise.all([
-    faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
+  
     faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
     faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
     faceapi.nets.faceExpressionNet.loadFromUri("/models")
     
   ]).then(handleImg)
-  .catch(console.log("false"))
+  .catch(e=>(console.log(e)))
   }
 
-  imageRef.current && loadModels()
+  loadModels()
   
 },[props.src])
 
   return (
     <div className="Main"> 
     <div className="img">
-    <img ref={imageRef} src={props.src}/>
+    <img crossOrigin="anonymous" ref={imageRef} src={props.src}/>
      
      <canvas ref={canvasRef} width="795"
      height="460"/>
