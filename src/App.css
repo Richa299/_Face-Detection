@@ -3,16 +3,18 @@ canvas{
   position: absolute;
 }
 .choose{
-  border: 2px solid blue;
+  border: 2px solid rgb(241, 241, 247);
   background-color: lightblue;
   font-weight: bold;
   margin: auto;
   border-radius: 5px;
 
 }
-.main-form{
+input{
+  width:18vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
 }
+
+
 

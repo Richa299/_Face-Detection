@@ -3,9 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import './Main.css';
 function Main(props) {
     
-    function handleClick(e){
-        console.log("hi")
-    }
   const imageRef=useRef();
   const canvasRef=useRef();
 
@@ -18,12 +15,12 @@ function Main(props) {
       
       canvasRef.current.innerHtml=faceapi.createCanvasFromMedia(imageRef.current);
       faceapi.matchDimensions(canvasRef.current, {
-        width: 700,
-        height: 400
+        width: 795,
+        height: 460
       })
        const  resized=faceapi.resizeResults(detections,{
-        width: 700,
-        height: 400
+        width: 795,
+        height: 460
        })
       faceapi.draw.drawDetections(canvasRef.current, resized);
       faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
@@ -48,12 +45,11 @@ function Main(props) {
 
   return (
     <div className="Main"> 
-    
     <div className="img">
     <img ref={imageRef} src={props.src}/>
      
-     <canvas ref={canvasRef} width="700"
-     height="400"/>
+     <canvas ref={canvasRef} width="795"
+     height="460"/>
     </div>
       
 

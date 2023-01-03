@@ -12,14 +12,12 @@ function App() {
   }
     
   return (
-    <div className="App"> 
+    <div className='form-start'> 
     <form className='main-form'>
-      <input type="file" onChange={handleChange} className="choose"/>
-     
+
+      <input type="file" onChange={handleChange} className="choose" placeholder='select'/>
      </form>
      <Main src={img} />
-     
-    
     </div>
   );
 }
